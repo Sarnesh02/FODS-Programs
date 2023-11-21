@@ -1,33 +1,10 @@
 import numpy as np
-import pandas as pd
 
-scores_data = np.array([
-    [85, 90, 78, 92],
-    [88, 95, 89, 78],
-    [92, 87, 85, 90],
-    [78, 82, 80, 88],
-    [95, 92, 94, 85],
-    [89, 78, 92, 88],
-    [80, 85, 88, 75],
-    [94, 90, 87, 92],
-    [82, 88, 90, 78],
-    [90, 94, 82, 86],
-    [85, 89, 93, 91],
-    [91, 86, 88, 94],
-    [78, 80, 85, 89],
-    [87, 92, 78, 83],
-    [88, 84, 91, 87]
-])
+time_intervals = np.array([0, 1, 2, 3, 4])  
+vertical_positions = np.array([0, 10, 15, 12, 5])
+delta_vertical = np.diff(vertical_positions)
+delta_time = np.diff(time_intervals)
 
-columns = ['Math', 'Science', 'English', 'History']
-student_scores = pd.DataFrame(scores_data, columns=columns)
+average_velocity = delta_vertical / delta_time
 
-average_scores = student_scores.mean()
-
-highest_avg_subject = average_scores.idxmax()
-
-print("Average Score for Each Subject:")
-print(average_scores)
-
-print("\nThe subject with the Highest Average Score:")
-print(highest_avg_subject)
+print("Average Velocity:", average_velocity)
